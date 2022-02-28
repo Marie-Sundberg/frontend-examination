@@ -4,19 +4,20 @@
 
     <div class="col">
       {{ packages.header }}
-      <div class="col"[innerHtml]="packages.description"></div>
+      <div class="col" [innerHtml]="packages.description"></div>
 
       <!-- Används för att dölja text i visa mer/visa mindre -->
-      <div *ngIf="showAllText">
+      <div *ngIf="showOrHideText">
         <p class="col" [innerHtml]="packages.extendedDescription"></p>
       </div>
 
       <!-- Gör om denna till en SCSS klass som kan användas av båda "knapparna" -->
-      <div style="text-align: right;">
-      <a class="link" (click)="showText()">{{
-        showAllText ? "visa mindre" : "visa mer"
-      }}</a></div>
-      <div style="text-align: right;">
+      <div style="text-align: right">
+        <a class="link" (click)="showText()">{{
+          showOrHideText ? "visa mindre" : "visa mer"
+        }}</a>
+      </div>
+      <div style="text-align: right">
         <button (click)="pickButton()">{{ show ? "Välj" : "show" }}</button>
         show = {{ show }}
       </div>
@@ -29,6 +30,5 @@
         
         denna försökte jag med först
         <div><button class="pick" (click)="pickButton()">Välj</button></div>-->
-    </div>
   </div>
-
+</div>

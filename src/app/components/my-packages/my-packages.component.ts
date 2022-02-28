@@ -11,7 +11,7 @@ export class MyPackagesComponent implements OnInit {
   @Input()
   packages?: Packages;
 
-  showAllText: boolean = false;
+  showOrHideText: boolean = false;
   show = true;
 
   constructor() { }
@@ -21,12 +21,11 @@ export class MyPackagesComponent implements OnInit {
   }
   
   public showText(): void{
-    this.showAllText = !this.showAllText;
+    this.showOrHideText = !this.showOrHideText;
   }
 
   public pickButton(): void {
     this.show = !this.show;
-
   }
 
 }
