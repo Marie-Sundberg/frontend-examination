@@ -1,14 +1,23 @@
 .link {
     cursor: pointer;
-    color: green;
+    color: black;
     transition: all 0.3s;
 }
-
-.pickBtn {
-    background-color: aliceblue;
-    
+a:hover {
+    color: rgb(209, 209, 209)
 }
-
-a:hover{
-    color:bisque;
+.packagesHeader {
+    font-weight: bold;
+    border-top:2px solid;
+}
+.pickBtn {
+    background-color: rgb(109, 1, 1);
+    margin-top: 10px;
+    color: white;
+    border: none;
+    box-shadow: 3px 3px 6px black;
+    background-image: linear-gradient(rgb(46, 0, 0),rgb(134, 1, 1));
+}
+.pickBtn:hover {
+    box-shadow: 3px 3px 6px rgb(134, 1, 1);
 }

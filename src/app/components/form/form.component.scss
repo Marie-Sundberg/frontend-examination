@@ -1,0 +1,19 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948;
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid rgb(109, 1, 1);
+  }
+  .formButtons {
+    background-color: rgb(109, 1, 1);
+    margin-left: 5px;
+    float: right;
+    color: white;
+    border: none;
+    box-shadow: 3px 3px 6px black;
+    background-image: linear-gradient(rgb(46, 0, 0),rgb(134, 1, 1));
+}
+.formButtons:hover {
+  box-shadow: 3px 3px 6px rgb(134, 1, 1);
+}

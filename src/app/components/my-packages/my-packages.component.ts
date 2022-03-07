@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BookingResults } from '../entities/booking-results';
 import { Packages } from '../entities/packages';
 
 @Component({
@@ -10,22 +11,21 @@ export class MyPackagesComponent implements OnInit {
 
   @Input()
   packages?: Packages;
-
+  
   showOrHideText: boolean = false;
-  show = true;
+
+  @Output()
+  packageSelected = new EventEmitter<Packages>();
 
   constructor() { }
 
   ngOnInit(): void {
- 
   }
-  
   public showText(): void{
     this.showOrHideText = !this.showOrHideText;
   }
 
-  public pickButton(): void {
-    this.show = !this.show;
+  public pickButtonClicked(): void {
+    this.packageSelected.emit(this.packages);
   }
-
 }

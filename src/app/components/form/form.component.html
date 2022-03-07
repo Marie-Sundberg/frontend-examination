@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="col-5">
+    <ng-container *ngIf="showReciept">
+      <form
+        #bookingForm="ngForm"
+        *ngIf="packages"
+        (ngSubmit)="onBookingSelected()"
+      >
+        <h3>{{ packages.header }}</h3>
+        <div class="form-group mb-3">
+          <label>Namn</label>
+          <!-- ngmodel pekar på variabeln name i app-component, måste ha ett namn (name) för att hantera objektens egenskaper
+        måste ha ett unikt namn så lättast är att ha variabelnamnen här -->
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="name"
+            name="name"
+            required
+          />
+        </div>
+        <button
+          class="btn btn-primary formButtons"
+          type="submit"
+          [disabled]="!bookingForm.form.valid"
+        >
+          Boka
+        </button>
+        <button
+        (click)="cancelButtonClicked()"
+        class="btn btn-primary formButtons"
+        type="button"
+      >
+        Avbryt
+      </button>
+      </form>
+    </ng-container>
+    <div *ngIf="result" class="mt-3">
+      <h5>Bokningsbekräftelse</h5>
+      <p>{{ packages?.header }}</p>
+      <p>
+        Din boking är nu genomförd <strong>{{ name }}</strong>
+      </p>
+      <p>Bokningsnummer:{{ " " + result.confirmationNumber }}</p>
+    </div>
+  </div>
+</div>

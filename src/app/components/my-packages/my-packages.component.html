@@ -1,34 +1,22 @@
-<div *ngIf="show">
+<div class="container mt-2">
   <div class="row" *ngIf="packages">
-    <div class="col"><img [src]="packages.imageUrl" /></div>
-
-    <div class="col">
-      {{ packages.header }}
+    <div class="col-md-4"><img [src]="packages.imageUrl" /></div>
+    <div class="col-md-8">
+      <p class="packagesHeader">{{ packages.header }}</p>
       <div class="col" [innerHtml]="packages.description"></div>
-
       <!-- Används för att dölja text i visa mer/visa mindre -->
       <div *ngIf="showOrHideText">
-        <p class="col" [innerHtml]="packages.extendedDescription"></p>
+        <p [innerHtml]="packages.extendedDescription"></p>
+      </div>
+      <div style="text-align: right">
+        <a class="link" (click)="showText()">{{showOrHideText ? "visa mindre" : "visa mer"}}</a>
       </div>
 
-      <!-- Gör om denna till en SCSS klass som kan användas av båda "knapparna" -->
-      <div style="text-align: right">
-        <a class="link" (click)="showText()">{{
-          showOrHideText ? "visa mindre" : "visa mer"
-        }}</a>
-      </div>
-      <div style="text-align: right">
-        <button (click)="pickButton()">{{ show ? "Välj" : "show" }}</button>
-        show = {{ show }}
+      <div *ngIf="packages">
+        <div style="text-align: right">
+        <button class="btn btn-primary pickBtn" (click)="pickButtonClicked()">Välj {{ packages.header }}</button>
+        </div>
       </div>
     </div>
-
-    <!-- 
-        denna funkar att ta bort hela paketet med dess välj-knapp men förutsatt att <div *ngIf="show"> ligger högst upp över *ngIf="packages">
-        <button (click)=" show = !show">{{ show ? "hide" : "show" }}</button>
-        samma kod fast utan hjälp av funktionen i my-packages.ts (pickButton)
-        
-        denna försökte jag med först
-        <div><button class="pick" (click)="pickButton()">Välj</button></div>-->
   </div>
 </div>
