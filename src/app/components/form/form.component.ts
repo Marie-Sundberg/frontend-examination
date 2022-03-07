@@ -23,25 +23,23 @@ export class FormComponent implements OnInit {
   @Output()
   cancelBooking = new EventEmitter();
 
-  @Output()
-  createBooking = new EventEmitter();
-
   constructor(private notificationService: MyPackagesService) { }
 
   ngOnInit(): void {
   }
 
   onBookingSelected() {
-  if(!this.name || !this.packages) {
-  return;
+    if(!this.name || !this.packages) {
+    return;
   }
   const notification = new Booking(this.name, this.packages.id);
-  this.notificationService.createBooking(notification).subscribe((response: BookingResults) => {
-  this.result = response;
-  this.showReciept = !this.showReciept;
+  this.notificationService.createBooking(notification).subscribe((response: 
+  BookingResults) => {
+    this.result = response;
+    this.showReciept = !this.showReciept;
  });
 }
   cancelButtonClicked(): void {
-  this.cancelBooking.emit(this.packages);
+    this.cancelBooking.emit(this.packages);
   }
 }
